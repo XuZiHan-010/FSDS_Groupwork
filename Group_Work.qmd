@@ -6,7 +6,7 @@ execute:
   echo: false
 jupyter: python3
 format: 
-  html:
+  pdf:
     theme:
       - minty
       - css/web.scss
