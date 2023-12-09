@@ -2,6 +2,8 @@
 bibliography: bio.bib
 csl: harvard-cite-them-right.csl
 title: Group Name's Group Project
+output:
+  pdf_document:
 execute:
   echo: false
 jupyter: python3
