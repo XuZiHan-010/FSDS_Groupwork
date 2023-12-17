@@ -224,7 +224,10 @@ Airbnb, in: Twenty-Third Am. Conf. Inf. Syst., Boston, 201.
 
 [13] Colnerud, G. (2015). Ethical dilemmas in research in relation to ethical review: an empirical study, Research Ethics, Vol. 10 No. 4, pp. 238-253, doi: 10.1177/1747016114552339.
 
-[2] Cilliers, L. and Viljieon, K. (2021). A framework of ethical issues to consider when conducting internet-based research, South African Journal of Information Management, ISSN: 1560-63x, 2078-1865.
-[3] Pastore M. The world’s online populations. (2001). CyberAtlas com 24 Aug 2001, Available at: http://cyberatlas.internet.com/big_picture/geographics/article/0,1323,5911_151151,00.html (Accessed 17 Sep 2001).
-[4]Kushi LH, Finnegan J, Martinson B, et al. (1997) Epidemiology and the internet. Epidemiology 1997;8:689–90.
-[5]Hilsden RJ, Scott CM, Verhoef MJ. (1998). Research and the Internet. Am J Gastroenterol 1998;93:484–5.
+[14] Cilliers, L. and Viljieon, K. (2021). A framework of ethical issues to consider when conducting internet-based research, South African Journal of Information Management, ISSN: 1560-63x, 2078-1865.
+
+[15] Pastore M. The world’s online populations. (2001). CyberAtlas com 24 Aug 2001, Available at: http://cyberatlas.internet.com/big_picture/geographics/article/0,1323,5911_151151,00.html (Accessed 17 Sep 2001).
+
+[16]Kushi LH, Finnegan J, Martinson B, et al. (1997) Epidemiology and the internet. Epidemiology 1997;8:689–90.
+
+[17]Hilsden RJ, Scott CM, Verhoef MJ. (1998). Research and the Internet. Am J Gastroenterol 1998;93:484–5.
