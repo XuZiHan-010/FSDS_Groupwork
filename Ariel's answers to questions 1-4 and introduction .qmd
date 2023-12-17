@@ -1,0 +1,202 @@
+---
+bibliography: bio.bib
+csl: harvard-cite-them-right.csl
+title: Group Name's Group Project
+execute:
+  echo: false
+format:
+  html:
+    theme:
+      - minty
+      - css/web.scss
+    code-copy: true
+    code-link: true
+    toc: true
+    toc-title: On this page
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+    mainfont: Spectral
+    sansfont: Roboto
+    monofont: JetBrainsMono-Regular
+    papersize: a4
+    geometry:
+      - top=25mm
+      - left=40mm
+      - right=30mm
+      - bottom=25mm
+      - heightrounded
+    toc: false
+    number-sections: false
+    colorlinks: true
+    highlight-style: github
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+## Declaration of Authorship {.unnumbered .unlisted}
+
+We, [insert your group's names], confirm that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+
+Date:
+
+Student Numbers: 
+
+## Brief Group Reflection
+
+| What Went Well | What Was Challenging |
+| -------------- | -------------------- |
+| A              | B                    |
+| C              | D                    |
+
+## Priorities for Feedback
+
+Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+
+```{=html}
+<style type="text/css">
+.duedate {
+  border: dotted 2px red; 
+  background-color: rgb(255, 235, 235);
+  height: 50px;
+  line-height: 50px;
+  margin-left: 40px;
+  margin-right: 40px
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(150,100,100);
+  text-align: center;
+}
+</style>
+```
+
+{{< pagebreak >}}
+
+# Response to Questions
+
+```{python}
+import os
+import pandas as pd
+```
+
+```{python}
+host = 'https://orca.casa.ucl.ac.uk'
+path = '~jreades/data'
+file = '2023-09-06-listings.csv.gz'
+url  = f'{host}/{path}/{file}'
+
+if os.path.exists(file):
+  df = pd.read_csv(file, compression='gzip', low_memory=False)
+else: 
+  df = pd.read_csv(url, compression='gzip', low_memory=False)
+  df.to_csv(file)
+```
+
+## Introduction
+
+The rise of Airbnb and similar short-term rental (STR) platforms presents significant challenges for urban management. This paper focuses on assessing the suitability of data from Inside Airbnb for informing policy decisions in London, especially concerning the regulation of Short-Term Lets (STLs). By examining successful strategies from other cities, we aim to provide a robust methodological framework for applying these insights effectively in the context of Londf low.Based on the available data, we make ...... assumptions to explore the impact of ......restriction on the short-term and long-term rental market.ket.
+
+    
+By combining data from InsideAirbnb as well as data from multiple sources such as...... and ......, we built three different models for analysis and prediction:
+
+                                                                                                                                   
+(i) The ...... model linking ...... reveals that ...... is higher/lower and ...... is also higher. (ii) Price regression analyses through ...... and ...... correlation features reveal a positive correlation. (iii) Using the ...... model, a negative correlation was found between ...... and long-term rental house prices; while a positive correlation was found between ...... (e.g., rental demand) and long-term rental house prices. (iii) Using the  model, it is found that there is a negative correlation between  and long-term rental prices, while there is a positive correlation between  (e.g. rental demand) and long-term rental prices. These findings suggest the impact of regulations such as ...... on the long-term rental market. This study provides an in-depth analysis of the impact of ...... in London, which helps to provide a more in-depth investigation and understanding of the trends of .......
+
+### Note: I have quantified the following questions into word counts based on points. ###
+2500 words is 100 points, so 2 points is about 50 words. The same as below.
+
+The word count of the answers I wrote was basically around that mark range.
+
+In addition, with regard to the citation:
+
+(1) An inline citation: As discussed on @insideairbnb, there are many...
+
+(2) A parenthetical citation: There are many ways to research Airbnb [see, for example, @insideairbnb]... 
+
+# 1. Who collected the data? (2 points)
+
+Airbnb and other STR platforms are often reluctant to share their data due to privacy, competition and other regulatory concerns [1]. Murray Cox, an activist and data analyst from New York, challenges the claim made by Airbnb that 87% of hosts rent out their residences [2]. He set up a non-commercial database website called @InsideAirbnb, where he worked with experts like Alice and Ziggy, to gather, track, and analyze data of global Airbnb listings [3].
+
+## 2. Why did they collect it? (4 points)
+
+Inside Airbnb aims to quantify, analyse and reveal how Airbnb short-term rentals operate in different cities and their impact on local residential communities and real estate markets [4]. Provides an important data resource for researchers, academics, policymakers, and the public to better understand how the shared accommodation economy operates in cities, and to explore its impacts and potential risks on neighbourhoods, real estate markets, and cities, in order to develop more targeted and sustainable policy options.
+
+```{python}
+print(f"Data frame is {df.shape[0]:,} x {df.shape[1]:,}")
+```
+
+```{python}
+ax = df.host_listings_count.plot.hist(bins=50);
+ax.set_xlim([0,500]);
+```
+
+## 3. How was the data collected? (5 points)
+
+According to @insideairbnb, it is an independent, third-party project that scrapes data from the Airbnb website and it is not affiliated with Airbnb [3]. Despite its immense popularity in academic research and urban planning studies, IA offers relatively little details on the procedure used to gather data from Airbnb [5]. Typically, data is scraped once a month. In addition to providing unprocessed web scraped data, including ratings, listings, and calendar (occupancy), it also offers fundamental hospitality metrics, an estimate of monthly income, market insights, and occupancy derived from the sum of past scraping data in particular areas [6].
+
+
+## 4. How does the method of collection impact the completeness and/or accuracy of its representation of the process it seeks to study, and what wider issues does this raise? (11 points)
+
+Notably，although Inside Airbnb datasets are frequently used in academic studies, authors have rarely assessed the datasets' impact or validity [5]. The reason they respond why using the Inside Airbnb dataset in their research primarily because these data are reliable and have been used by other scholars for their own research [8,9,10,11]. In this regard, Van Holm & Monaghan pointed that while web scraping is generally done once a month with availability and prices for the following 365 days by @insideairbnb, irregular data scrapes in some destinations may lead to data gaps [7].In addition, Adamiak et al. discovered discrepancies in the amount of lists gathered from IA and GitHub projects, which implies that there may be data quality issues [12]. Furthermore, Alsudais reveals that some reviews are incorrectly linked to listings in IA, leading to inflated review numbers for some listings, which is very likely due to systemic errors in the data collection process [5]. In summary, these results highlight the necessity for a more thorough and critical analysis of the data collection techniques, particularly when the data are the foundation for regulatory and policy decisions in complex urban environments. 
+
+## 5. What ethical considerations does the use of this data raise? (18 points)
+
+aaa
+
+## 6. With reference to the data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London? (15 points)
+
+aaa
+
+
+## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, and statistical analysis/models), how *could* this data set be used to inform the regulation of Short-Term Lets (STL) in London? (45 points)
+
+aaa
+
+## Sustainable Authorship Tools
+
+Your QMD file should automatically download your BibTeX file. We will then re-run the QMD file to generate the output successfully.
+
+Written in Markdown and generated from [Quarto](https://quarto.org/). Fonts used: [Spectral](https://fonts.google.com/specimen/Spectral) (mainfont), [Roboto](https://fonts.google.com/specimen/Roboto) (<span style="font-family:Sans-Serif;">sansfont</span>) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains%20Mono) (`monofont`). 
+
+## References
+
+[1] Benítez-Aurioles, B. (2020), “Impacts of the peer-to-peer market on tourist accommodation on the Balearic islands of Mallorca and Menorca”, Island Studies Journal, Vol. 15 No. 2, pp. 353-370.
+
+[2] Lehr, Dean D., An Analysis of the Changing Competitive Landscape in the Hotel Industry Regarding Airbnb, 2015, https://doi.org/10.33015/dominican.edu/2015. bus.01. 
+
+[3] insideairbnb.com. (n.d.). About. [online] Available at: http://insideairbnb.com/about/.
+
+[4] insideairbnb.com. (n.d.). Data Policies. [online] Available at: http://insideairbnb.com/data-policies.
+
+[5] Alsudais, A. (2021). Incorrect data in the widely used Inside Airbnb dataset. Decision Support Systems, 141, 113453-. https://doi.org/10.1016/j.dss.2020.113453
+
+[6] Prentice, C. and Pawlicz, A. (2023). Addressing data quality in Airbnb research. International Journal of Contemporary Hospitality Management. doi:https://doi.org/10.1108/ijchm-10-2022-1207, https://www.emerald.com/insight/0959-6119.htm.
+
+[7] Van Holm, E. J., & Monaghan, J. (2021). The relationship of Airbnb to neighborhood calls for service in three cities. Cities, 116, 103241-. https://doi.org/10.1016/j.cities.2021.103241
+
+[8] N. Gurran, P. Phibbs, When tourists move in: how should urban planners respond to Airbnb? J. Am. Plan. Assoc. 83 (2017) 80–92, https://doi.org/10.1080 
+01944363.2016.124901.
+
+[9] A. Alsudais, quantifying the offline interactions between hosts and guests o 
+Airbnb, in: Twenty-Third Am. Conf. Inf. Syst., Boston, 201.
+
+[10] N. Gurran, Y. Zhang, P. Shrestha, “Pop-up” tourism or “invasion”? Airbnb in coastal Australia, Ann. Tour. Res. 81 (2020), https://doi.org/10.1016/j.annals.2019.1028.
+
+[11] Y. Cai, Y. Zhou, J. Ma, N. Scott, Price determinants of airbnb listings: evidece from Hong Kong, Tour. Anal. 24 (2019) 227–242, https://doi.org/10.327/108354219X1552505591
+
+[12] Adamiak, C., Szyda, B., Dubownik, A., & García-Álvarez, D. (2019). Airbnb offer in Spain-Spatial analysis of the pattern and determinants of its distribution. ISPRS International Journal of Geo-Informatio.
+
