@@ -1,0 +1,72 @@
+Descriptive statistics for 'Count of rents':
+count     1835
+unique     572
+top         20
+freq        46
+Name: Count of rents, dtype: object
+
+Descriptive statistics for 'Average':
+count     1835
+unique    1263
+top         ..
+freq         9
+Name: Average, dtype: object
+
+Value counts for 'Area':
+Area
+Barking and Dagenham        42
+Barnet                      42
+Redbridge                   42
+Richmond upon Thames        42
+Southwark                   42
+Sutton                      42
+Tower Hamlets               42
+Waltham Forest              42
+Wandsworth                  42
+Westminster                 42
+NORTH EAST                  42
+NORTH WEST                  42
+YORKSHIRE AND THE HUMBER    42
+EAST MIDLANDS               42
+WEST MIDLANDS               42
+EAST                        42
+LONDON                      42
+SOUTH EAST                  42
+SOUTH WEST                  42
+Inner London                42
+Outer London                42
+Newham                      42
+Merton                      42
+Lewisham                    42
+Hackney                     42
+Bexley                      42
+Brent                       42
+Bromley                     42
+Camden                      42
+Croydon                     42
+Ealing                      42
+Enfield                     42
+Greenwich                   42
+Hammersmith and Fulham      42
+Lambeth                     42
+Haringey                    42
+Harrow                      42
+Havering                    42
+Hillingdon                  42
+Hounslow                    42
+Islington                   42
+Kensington and Chelsea      42
+Kingston upon Thames        42
+City of London              29
+Name: count, dtype: int64
+
+Value counts for 'Category':
+Category
+Studio                   264
+One Bedroom              264
+Two Bedroom              264
+All categories           264
+Three Bedroom            263
+Room                     258
+Four or more Bedrooms    258
+Name: count, dtype: int64

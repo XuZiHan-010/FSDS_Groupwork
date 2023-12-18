@@ -1,0 +1,206 @@
+Descriptive statistics for price:
+count     6072.000000
+mean       365.113966
+std        545.039359
+min          8.000000
+25%        135.000000
+50%        199.000000
+75%        347.250000
+max      20362.000000
+Name: price, dtype: float64
+
+Descriptive statistics for host_since:
+count                             6072
+mean     2017-12-06 08:40:47.430829824
+min                2017-01-01 00:00:00
+25%                2017-05-07 00:00:00
+50%                2017-11-10 00:00:00
+75%                2018-06-10 00:00:00
+max                2018-12-30 00:00:00
+Name: host_since, dtype: object
+
+Descriptive statistics for bedrooms:
+count    6072.000000
+mean        1.738636
+std         1.352671
+min         1.000000
+25%         1.000000
+50%         1.000000
+75%         2.000000
+max        50.000000
+Name: bedrooms, dtype: float64
+
+Descriptive statistics for beds:
+count    6025.000000
+mean        2.136432
+std         1.615406
+min         1.000000
+25%         1.000000
+50%         2.000000
+75%         3.000000
+max        50.000000
+Name: beds, dtype: float64
+
+Descriptive statistics for latitude:
+count    6072.000000
+mean       51.510085
+std         0.043830
+min        51.305509
+25%        51.491223
+50%        51.512890
+75%        51.528698
+max        51.671530
+Name: latitude, dtype: float64
+
+Descriptive statistics for longitude:
+count    6072.000000
+mean       -0.142893
+std         0.097929
+min        -0.487040
+25%        -0.191682
+50%        -0.150994
+75%        -0.094109
+max         0.255233
+Name: longitude, dtype: float64
+
+Unique values for property_type:
+property_type
+Entire rental unit                    3077
+Entire condo                           994
+Entire home                            584
+Entire serviced apartment              476
+Private room in rental unit            233
+Room in boutique hotel                 102
+Entire townhouse                       100
+Private room in hostel                  58
+Private room in guesthouse              42
+Private room in home                    42
+Room in hotel                           37
+Private room in serviced apartment      36
+Room in serviced apartment              36
+Entire loft                             34
+Entire guesthouse                       32
+Room in aparthotel                      31
+Private room in condo                   25
+Entire guest suite                      19
+Private room in loft                    17
+Private room in bed and breakfast       15
+Entire vacation home                    14
+Entire bungalow                          8
+Room in bed and breakfast                7
+Tiny home                                7
+Entire place                             7
+Boat                                     7
+Entire cottage                           5
+Room in hostel                           3
+Private room                             3
+Entire villa                             3
+Private room in guest suite              3
+Entire cabin                             3
+Private room in townhouse                2
+Entire home/apt                          2
+Camper/RV                                2
+Private room in boat                     1
+Private room in nature lodge             1
+Religious building                       1
+Private room in vacation home            1
+Tower                                    1
+Casa particular                          1
+Name: count, dtype: int64
+
+Unique values for room_type:
+room_type
+Entire home/apt    5391
+Private room        623
+Hotel room           58
+Name: count, dtype: int64
+
+Unique values for host_identity_verified:
+host_identity_verified
+t    5699
+f     373
+Name: count, dtype: int64
+
+Unique values for bathrooms_text:
+bathrooms_text
+1 bath              3475
+2 baths             1055
+1.5 baths            509
+1 private bath       376
+2.5 baths            216
+3 baths              140
+1 shared bath         93
+3.5 baths             74
+0 baths               35
+4 baths               33
+4.5 baths             21
+1.5 shared baths       8
+2 shared baths         7
+5 baths                6
+6 baths                4
+2.5 shared baths       3
+6.5 baths              3
+5.5 baths              2
+3 shared baths         2
+5 shared baths         2
+Half-bath              2
+13 baths               1
+7 baths                1
+13 shared baths        1
+48 baths               1
+17 baths               1
+16 baths               1
+Name: count, dtype: int64
+
+Unique values for neighbourhood_cleansed:
+neighbourhood_cleansed
+Westminster               1291
+Kensington and Chelsea     735
+Camden                     447
+Tower Hamlets              331
+Southwark                  275
+Lambeth                    260
+Hammersmith and Fulham     237
+Wandsworth                 236
+Brent                      216
+Islington                  198
+Hackney                    190
+Newham                     161
+Hounslow                   149
+Ealing                     125
+Barnet                     120
+Haringey                   117
+Greenwich                  117
+Lewisham                    98
+Waltham Forest              97
+Croydon                     84
+Richmond upon Thames        73
+Enfield                     72
+Hillingdon                  67
+Merton                      63
+Bromley                     48
+Havering                    47
+City of London              40
+Barking and Dagenham        35
+Redbridge                   33
+Kingston upon Thames        33
+Harrow                      33
+Bexley                      24
+Sutton                      20
+Name: count, dtype: int64
+
+Unique values for amenities:
+amenities
+[]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     215
+["Heating", "Stove", "Elevator", "First aid kit", "Lock on bedroom door", "Wifi", "Dishes and silverware", "Oven", "Refrigerator", "Kitchen", "Microwave", "Bed linens", "Dedicated workspace", "Essentials", "Long term stays allowed"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                90
+["Hot water kettle", "Heating", "Stove", "Long term stays allowed", "Hot water", "Iron", "Lock on bedroom door", "Wifi", "Dishes and silverware", "Oven", "Refrigerator", "Smoke alarm", "Kitchen", "Microwave", "Bed linens", "Dedicated workspace", "Essentials", "Private entrance", "Cooking basics"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               31
+["Hot water kettle", "Heating", "Stove", "Long term stays allowed", "Hot water", "Wifi", "Shampoo", "Dishes and silverware", "Oven", "Smoke alarm", "Kitchen", "Microwave", "Hangers", "Bed linens", "Hair dryer", "Private entrance", "Essentials"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    23
+["Hot water kettle", "Heating", "Stove", "Hot water", "Lock on bedroom door", "Wifi", "Shampoo", "Dishes and silverware", "Oven", "Refrigerator", "Smoke alarm", "Kitchen", "Microwave", "Hangers", "Bed linens", "Dedicated workspace", "Essentials", "Long term stays allowed"]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       22
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ... 
+["Paid washer \u2013 In building", "Clothing storage: closet", "Laundromat nearby", "Shampoo", "Luggage dropoff allowed", "Bed linens", "Hot water", "Iron", "Host greets you", "First aid kit", "BBQ grill", "Patio or balcony", "Shower gel", "Lock on bedroom door", "Ethernet connection", "Children\u2019s books and toys", "Free parking on premises", "TV", "Body soap", "Pets allowed", "Hair dryer", "Essentials", "Private entrance", "Beach essentials", "Long term stays allowed", "Babysitter recommendations", "Paid dryer \u2013 In building", "Carbon monoxide alarm", "Central heating", "Backyard", "Extra pillows and blankets", "Wifi", "Smoke alarm", "Breakfast", "Hangers"]                                                                                                                       1
+["Bathtub", "Free dryer \u2013 In unit", "Hot water kettle", "Shampoo", "Free washer \u2013 In unit", "Luggage dropoff allowed", "Microwave", "Self check-in", "Bed linens", "Coffee", "Hot water", "Iron", "Paid parking on premises", "Wine glasses", "Building staff", "Cooking basics", "Heating", "Drying rack for clothing", "Shower gel", "Clothing storage", "Oven", "Refrigerator", "Mini fridge", "Baking sheet", "Body soap", "Hair dryer", "Essentials", "Long term stays allowed", "Dedicated workspace", "Room-darkening shades", "Stove", "Elevator", "Toaster", "Cleaning products", "Extra pillows and blankets", "Wifi", "Dishes and silverware", "Smoke alarm", "Kitchen", "Hangers", "Conditioner"]                                                                                                  1
+["Bathtub", "Laundromat nearby", "Shampoo", "Luggage dropoff allowed", "Dryer", "Microwave", "Self check-in", "Bed linens", "Cleaning available during stay", "High chair", "Baby bath", "Hot water", "Iron", "First aid kit", "Crib", "Air conditioning", "Building staff", "Washer", "Coffee maker: Nespresso", "Fire extinguisher", "Cooking basics", "Heating", "Dishwasher", "TV with standard cable", "Shower gel", "Freezer", "Oven", "Refrigerator", "Outlet covers", "Body soap", "Baking sheet", "Hair dryer", "Essentials", "Long term stays allowed", "Babysitter recommendations", "Stove", "Carbon monoxide alarm", "Baby monitor", "Extra pillows and blankets", "Wifi", "Dishes and silverware", "Smoke alarm", "Kitchen", "Hangers", "Conditioner", "Pack \u2019n play/Travel crib", "Rice maker"]      1
+["Shampoo", "Microwave", "Self check-in", "Hot water", "Iron", "Lockbox", "Washer", "Fire extinguisher", "Cooking basics", "Heating", "Free street parking", "Free parking on premises", "Refrigerator", "TV", "Pets allowed", "Hair dryer", "Essentials", "Elevator", "Carbon monoxide alarm", "Cleaning products", "Wifi", "Dishes and silverware", "Smoke alarm", "Kitchen"]                                                                                                                                                                                                                                                                                                                                                                                                                                          1
+["Single level home", "Bathtub", "Clothing storage: closet", "Hot water kettle", "Private patio or balcony", "Shampoo", "Luggage dropoff allowed", "Bed linens", "Hot water", "Iron", "Outdoor dining area", "Exercise equipment", "Security cameras on property", "Conditioner", "Washer", "Fire extinguisher", "Cooking basics", "Dishwasher", "Freezer", "Shower gel", "Single oven", "Free parking on premises", "Refrigerator", "TV", "Body soap", "Essentials", "Long term stays allowed", "Shared gym nearby", "Carbon monoxide alarm", "Central heating", "Shared sauna", "Toaster", "Cleaning products", "Dishes and silverware", "Smoke alarm", "Kitchen", "Dedicated workspace"]                                                                                                                              1
+Name: count, Length: 5152, dtype: int64
+
