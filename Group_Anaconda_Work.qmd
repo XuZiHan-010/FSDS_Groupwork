@@ -89,16 +89,6 @@ We really want to know what kind of maps can be added to Question 7 that will be
 
 # Response to Questions
 
-## Introduction
-
-The rise of Airbnb and similar short-term rental (STR) platforms presents significant challenges for urban management. This paper focuses on assessing the suitability of data from Inside Airbnb for informing policy decisions in London, especially concerning the regulation of Short-Term Lets (STLs). By examining successful strategies from other cities, we aim to provide a robust methodological framework for applying these insights effectively in the context of Londf low.Based on the available data, we make ...... assumptions to explore the impact of ......restriction on the short-term and long-term rental market.
-
-    
-By combining data from InsideAirbnb as well as data from multiple sources such as...... and ......, we built three different models for analysis and prediction:
-
-                                                                                                                                   
-(i) The ...... model linking ...... reveals that ...... is higher/lower and ...... is also higher. (ii) Price regression analyses through ...... and ...... correlation features reveal a positive correlation. (iii) Using the ...... model, a negative correlation was found between ...... and long-term rental house prices; while a positive correlation was found between ...... (e.g., rental demand) and long-term rental house prices. (iii) Using the  model, it is found that there is a negative correlation between  and long-term rental prices, while there is a positive correlation between  (e.g. rental demand) and long-term rental prices. These findings suggest the impact of regulations such as ...... on the long-term rental market. This study provides an in-depth analysis of the impact of ...... in London, which helps to provide a more in-depth investigation and understanding of the trends of .......
-
 ## 1. Who collected the data? 
 
 Our Airbnb listing data and geographical boundary data are from Inside Airbnb, which is a non-commercial database constructed by Murray Cox. And our long-term housing rental data is from London Datastore updated by Valuation Office Agency (VOA).
