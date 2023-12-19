@@ -50,22 +50,23 @@ jupyter:
 
 ## Declaration of Authorship {.unnumbered .unlisted}
 
-We, [insert your group's names], confirm that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+We, [Anaconda], confirm that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
 
-Date:18/12/2023
+Date:19/12/2023
 
-Student Numbers: 23140058, 23049578, 23075632, 
+Student Numbers: 23109051, 23140058, 23049578, 23075632, 23035207 
 
 ## Brief Group Reflection
 
 | What Went Well                     | What Was Challenging |
 | --------------                     | -------------------- |
-|  Rational division of tasks        | B                    |
-| C                                  | D                    |
+| Rational division of tasks         | Effective Communication |
+| Comprehensive resource collection  | Detailed project schedule |
 
 ## Priorities for Feedback
 
 Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+We really want to know what kind of maps can be added to Question 7 that will be more beneficial to our research (such as the types of pictures and independent and dependent variables) according to our research questions?
 
 ```{=html}
 <style type="text/css">
@@ -90,7 +91,7 @@ Are there any areas on which you would appreciate more detailed feedback if we'r
 
 ## Introduction
 
-The rise of Airbnb and similar short-term rental (STR) platforms presents significant challenges for urban management. This paper focuses on assessing the suitability of data from Inside Airbnb for informing policy decisions in London, especially concerning the regulation of Short-Term Lets (STLs). By examining successful strategies from other cities, we aim to provide a robust methodological framework for applying these insights effectively in the context of Londf low.Based on the available data, we make ...... assumptions to explore the impact of ......restriction on the short-term and long-term rental market.ket.
+The rise of Airbnb and similar short-term rental (STR) platforms presents significant challenges for urban management. This paper focuses on assessing the suitability of data from Inside Airbnb for informing policy decisions in London, especially concerning the regulation of Short-Term Lets (STLs). By examining successful strategies from other cities, we aim to provide a robust methodological framework for applying these insights effectively in the context of Londf low.Based on the available data, we make ...... assumptions to explore the impact of ......restriction on the short-term and long-term rental market.
 
     
 By combining data from InsideAirbnb as well as data from multiple sources such as...... and ......, we built three different models for analysis and prediction:
