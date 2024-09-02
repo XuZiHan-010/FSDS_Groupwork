@@ -1,0 +1,512 @@
+---
+bibliography: bio.bib
+csl: harvard-cite-them-right.csl
+title: Group Anaconda's Group Project
+execute:
+  echo: false
+format:
+  html:
+    theme:
+      - minty
+      - css/web.scss
+    code-copy: true
+    code-link: true
+    toc: true
+    toc-title: On this page
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+    mainfont: Spectral
+    sansfont: Roboto
+    monofont: JetBrainsMono-Regular
+    papersize: a4
+    geometry:
+      - top=25mm
+      - left=40mm
+      - right=30mm
+      - bottom=25mm
+      - heightrounded
+    toc: false
+    number-sections: false
+    colorlinks: true
+    highlight-style: github
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+import os
+from requests import get
+from urllib.parse import urlparse
+
+def cache_data(src:str, dest:str) -> str:
+    """
+    Returns Geopandas Data Frame from dest path.
+    If file does not exist in local, retrieves files from source URL and makes directory.
+
+    Attributes
+    ----------
+
+    src : str
+        Source URL of file
+
+    dest : str
+        Path to save fetched file
+        
+    """    
+    url = urlparse(src) # We assume that this is some kind of valid URL 
+    fn  = os.path.split(url.path)[-1] # Extract the filename
+    dfn = os.path.join(dest,fn) # Destination filename
+    
+    if not os.path.isfile(dfn):
+        
+        #print(f"{dfn} not found, downloading!")
+
+        path = os.path.split(dest)
+        
+        if len(path) >= 1 and path[0] != '':
+            os.makedirs(os.path.join(*path), exist_ok=True)
+            
+        with open(dfn, "wb") as file:
+            response = get(src)
+            file.write(response.content)
+            
+        #print("\tDone downloading...")
+
+    else:
+        #print(f"Found {dfn} locally!")
+        pass
+
+    # return dfn
+
+
+cache_data('https://raw.githubusercontent.com/XuZiHan-010/FSDS_Groupwork/main/harvard-cite-them-right.csl', '.')
+cache_data('https://raw.githubusercontent.com/XuZiHan-010/FSDS_Groupwork/main/bio.bib','.')
+```
+
+## Declaration of Authorship {.unnumbered .unlisted}
+
+We, [Anaconda], confirm that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+
+Date:19/12/2023
+
+Student Numbers: 23109051, 23035207, 23049578, 23075632, 23140058
+
+## Brief Group Reflection
+
+| What Went Well                     | What Was Challenging |
+| --------------                     | -------------------- |
+| Rational division of tasks         | Effective Communication |
+| Comprehensive resource collection  | Detailed project schedule |
+
+## Priorities for Feedback
+
+Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+We really want to know what kind of maps can be added to Question 7 that will be more beneficial to our research (such as the types of pictures and independent and dependent variables) according to our research questions?
+
+```{=html}
+<style type="text/css">
+.duedate {
+  border: dotted 2px red; 
+  background-color: rgb(255, 235, 235);
+  height: 50px;
+  line-height: 50px;
+  margin-left: 40px;
+  margin-right: 40px
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(150,100,100);
+  text-align: center;
+}
+</style>
+```
+
+{{< pagebreak >}}
+
+# Response to Questions
+
+## 1. Who collected the data? 
+
+Our Airbnb listing data and geographical boundary data are from Inside Airbnb, which is a non-commercial database constructed by Murray Cox [@insideairbnb]. And our long-term housing rental data is from London Datastore updated by Valuation Office Agency (VOA) [@valuationofficeagency].
+
+## 2. Why did they collect it? 
+
+Inside Airbnb aims to quantify, analyse and reveal how Airbnb short-term rentals operate in different cities and their impact on local residential communities and real estate markets [@insideairbnb]. And the VOA collected the long-term housing rental data to produce reports and statistics, including the Index of Private Housing Rental Prices (IPHRP) through providing data to government and other stakeholders, and support economic research and analysis.
+
+## 3. How was the data collected? 
+
+Inside Airbnb collected data on London's Airbnb listings by scraping the Airbnb website once a month [@insideairbnb]. This means that they used software to automatically gather information from the website, such as the number of listings, the type of properties, and the prices. This data was then cleaned and analyzed to produce insights into the Airbnb market in London. While the Valuation Office Agency collects long-term housing rental data from a variety of sources, through rent data directly from landlords and letting agents, sample of rental properties, property transactions and the National Landlord Register.
+
+## 4. How does the method of collection impact the completeness and/or accuracy of its representation of the process it seeks to study, and what wider issues does this raise? 
+
+While both the Valuation Office Agency (VOA)'s data and Inside Airbnb's dataset have been widely used by researchers, their data collection method can be subjected to limitations [@zervas2014]:
+
+Airbnb's scraping method may only capture a partial portion of rental properties [@aguiar2018]. This can result in an incomplete representation of the overall rental market. Additionally, the data collection process may experience delays in gathering and processing the data, affecting its accuracy for near-term analysis. Furthermore, outliers in the data may skew the average rental prices, making the data less reliable.
+
+VOA's data collection method may have availability lags, as data is typically released quarterly or annually, delaying its availability for analysis [@benitez2020]. Moreover, some landlords or letting agents may not report accurately, introducing gaps or inaccuracies in the data. Another limitation is geographic variability, where data representativeness varies across regions and property types. Finally, integrating data from multiple sources can introduce inconsistencies, further reducing the reliability of the data.
+
+## 5. What ethical considerations does the use of this data raise? 
+
+(1) Privacy and Informed Consent: The data collected by Inside Airbnb and VOA includes sensitive information about individuals, such as their names, addresses, and property details. This information could be used to identify and target individuals, or to discriminate against them. The ethical principle of informed consent should be applied for how users’ data are collected, processed, and shared.
+
+(2) Community Impact and Gentrification: Scholarly analysis should extend to the broader societal impact of short-term and long-term housing on local communities. Ethical considerations include investigating whether the platform contributes to gentrification, alters the local housing landscape, and affects the socioeconomic fabric of neighborhoods.
+
+(3) Regulatory Compliance and Legal Ethicality: Examining Airbnb and housings’ adherence to data protection laws and regulations offers an academic lens to evaluate the company's legal ethicality. Scholars may explore instances of compliance or non-compliance, contributing to a nuanced understanding of the platform's ethical standing within legal frameworks.
+
+(4) Cultural Sensitivity and Global Impact: The global reach of both short-term and long-term housing necessitates an examination of cultural sensitivity. Ethical considerations should encompass the platform's responsiveness to diverse cultural norms, laws, and societal expectations across different regions.
+
+(5) Algorithmic Transparency and Bias: Airbnb's use of algorithms for personalized recommendations, pricing, and other features introduces ethical considerations related to transparency and potential biases. Researchers should explore the opacity of these algorithms and investigate whether they inadvertently perpetuate discrimination or exacerbate existing societal biases.
+
+(6) Data Security and Cybersecurity: The handling of extensive personal and financial data by Airbnb necessitates a robust examination of data security and cybersecurity measures. Ethical considerations involve assessing the adequacy of these measures to protect against potential data breaches and unauthorized access. A hacker could exploit information such as respondents’ IP address and visited sites for nefarious purposes [@hadley1997, @hilsden1998].
+
+(7) User Trust and Accountability: Trust is foundational to the success of platforms like Airbnb. Researchers should explore how the company establishes and maintains user trust through ethical practices. Additionally, academic scrutiny can focus on mechanisms of accountability in cases of disputes, ensuring fairness and justice in conflict resolution.
+
+```{python}
+# import packages
+import os
+import warnings
+import bibtexparser
+import pandas as pd
+import numpy as np
+import seaborn as sn
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
+from matplotlib.gridspec import GridSpec
+```
+
+```{python}
+host = 'https://orca.casa.ucl.ac.uk'
+path = '~jreades/data'
+file = '2023-09-06-listings.csv.gz'
+url  = f'{host}/{path}/{file}'
+
+if os.path.exists(file):
+  df = pd.read_csv(file, compression='gzip', low_memory=False)
+else: 
+  df = pd.read_csv(url, compression='gzip', low_memory=False)
+  df.to_csv(file)
+```
+
+```{python}
+# load the datasets
+airbnb_data = pd.read_csv('http://data.insideairbnb.com/united-kingdom/england/london/2023-09-06/data/listings.csv.gz', low_memory= False )
+# load the rental market dataset
+housing_data = pd.read_csv('https://github.com/XuZiHan-010/FSDS_Groupwork/raw/main/housing_data.csv',skiprows=2)
+# load the geo-spatial data
+london_geodata = gpd.read_file('http://data.insideairbnb.com/united-kingdom/england/london/2023-09-06/visualisations/neighbourhoods.geojson')
+```
+
+```{python}
+# !wget https://github.com/XuZiHan-010/FSDS_Groupwork/blob/main/bio(5).bib
+```
+
+```{python}
+# Data wrangled and filtered due to specific reasons, discussed in Question 7.
+# Filter out the columns
+columns_to_keep = ['host_total_listings_count', 'host_since', 'neighbourhood_cleansed', 'latitude', 'longitude', 'property_type', 'bedrooms', 'beds', 'price', 'availability_365']
+airbnb_data = airbnb_data[columns_to_keep]
+
+# Filter the data to include only listings that are available
+airbnb_data = airbnb_data[airbnb_data['availability_365'] > 0]
+
+#select the numerical columns
+numerical_columns = ['host_total_listings_count','price', 'host_since', 'bedrooms', 'beds','latitude','longitude']
+
+# Calculate descriptive statistics for categorical columns
+categorical_columns = ['property_type', 'neighbourhood_cleansed']
+
+# as we have price saved as a format like $130,000.00 so we need to deal with the '$' and ',' to convert it to numeric
+airbnb_data['price'] = airbnb_data['price'].astype(str)
+airbnb_data['price'] = airbnb_data['price'].str.replace('$','', regex=False).str.replace(',','').astype('float')
+#convert host_since to the date format 
+airbnb_data['host_since'] = pd.to_datetime(airbnb_data['host_since'])
+
+#define the property types which we won't use 
+exclude_types = ['Boat', 'Camper/RV', 'Houseboat', 'Religious building', 'Room in aparthotel']
+#select the property type
+airbnb_data = airbnb_data[~airbnb_data['property_type'].isin(exclude_types)]
+
+# Define the start and end date for the period
+start_date = pd.to_datetime('2016-01-01')
+end_date = pd.to_datetime('2018-12-31')
+
+# Filter the DataFrame for rows where the host_since falls within the specified range(2016-2018)
+airbnb_data = airbnb_data[(airbnb_data['host_since'] >= start_date) & (airbnb_data['host_since'] <= end_date)]
+
+#only need the airbnb_data which host_listings is less than two
+airbnb_data = airbnb_data[airbnb_data['host_total_listings_count']<2]
+
+
+# #check whether the columns in numerical_columns is numerical or not
+# for column in numerical_columns:
+#     if column in airbnb_data.columns:
+#         #print(f"Data type of '{column}': {airbnb_data[column].dtype}")
+#         if pd.api.types.is_numeric_dtype(airbnb_data[column]):
+#             #print(f"{column} is numeric.")
+#         else:
+#             #print(f"{column} is not numeric.")
+#     else:
+#         #print(f"{column} is not in the DataFrame.")
+```
+
+```{python}
+# #view the shape of data frame
+# print(airbnb_data.shape)
+```
+
+```{python}
+#check na for london geo-spatial data
+na_count = london_geodata.isna().sum()
+# print(na_count)
+```
+
+```{python}
+#drop the empty column
+london_geodata = london_geodata.dropna(axis=1)
+```
+
+## 6. With reference to the data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London? 
+
+By wrangling and filtering out the Airbnb listings that are out of our research scope, we have found that there are 3756 observations in this dataset. We have conducted descriptive statistics analyses based on our Airbnb dataset using bar chart, boxplot and scatterplot. Our main findings are as below:
+
+(1) Price: The average nightly price of £161.58 masks a vast range, with listings spanning from £8 to £20,362. This variance reflects the diverse offerings within Airbnb, catering to varied budgets and styles according to renters’ diverse preferences in London. The standard deviation of £421.86 further highlights the significant spread, hinting at the potential influence of factors of location, amenities, and seasonality.
+
+```{python}
+# Descriptive statistics for the dataset
+# write the descriptive statistics into a txt file which seems to be easy for analysis
+# for column in numerical_columns:
+#     # print(f"Descriptive statistics for {column}:")
+#     # print(str(airbnb_data[column].describe()))
+     
+# for column in categorical_columns:
+#     # print(f"Unique values for {column}:\n")
+#     # print(str(airbnb_data[column].value_counts()))
+```
+
+```{python}
+#actually we don't have na in our housing dataset but we have symbol . instead which fill in the empty cell
+#set a boolean mask to remove these dots
+mask_dot = (housing_data == '.').any(axis=1)
+mask_comma = (housing_data == ',').any(axis=1)
+mask_double_dot = (housing_data == '..').any(axis=1)
+
+# Combine the masks
+combined_mask = mask_dot | mask_comma | mask_double_dot
+
+# Filter the DataFrame
+housing_data = housing_data[~combined_mask]
+# Filter out the columns
+condition = (
+    (housing_data['Year'] >= 2016) &
+    (housing_data['Year'] <= 2018))
+
+housing_data = housing_data[condition]
+
+# #Descriptive statistics for 'Count of rents
+# print("Descriptive statistics for 'Count of rents':")
+# print(str(housing_data['Count of rents'].describe()))
+
+# #Descriptive statistics for 'Average
+# print("Descriptive statistics for 'Average':")
+# print(str(housing_data['Average'].describe()))
+    
+# # Value counts for 'Area'
+# print("Value counts for 'Area':")
+# print(str(housing_data['Area'].value_counts()))
+   
+
+# # Value counts for 'Category'
+# print("Value counts for 'Category':")
+# print(str(housing_data['Category'].value_counts()))
+```
+
+(2) Number of Bedrooms: Our result indicates that among all types of Airbnb listings from 2016 to 2018, the majority of Airbnb rooms only have 1 bedroom. Rooms with 6 bedrooms would cost the highest (700 pounds per day on average), while rooms with 1 bedroom only would cost the lowest (nearly 100 pounds per day on average). It also suggests that Airbnbs with 4 bedrooms has the highest variation in price, ranged from 300 to 1000 pounds per day. 
+
+```{python}
+# make catplot of airbnb average daily price~bedrooms
+plt.figure(figsize=(12, 10))
+sn.catplot(x='bedrooms', y='price', data=airbnb_data, kind='bar', color='skyblue')
+# The black vertical line on some bars represents the variability and uncertainty in the data
+# The longer the line, the more dispersed the data is
+plt.xlabel("Number of Airbnb's Bedrooms")
+plt.ylabel('Airbnb Average Daily Price (Unit: Pounds)')
+plt.title('Catplot of Airbnb Average Daily Price~Bedrooms')
+plt.show()
+warnings.filterwarnings('ignore')
+```
+
+(3) Property Preference: There are 46 unique types of property listed according to our dataset, which provides short-term renters a comprehensive choice of listings. With 1,143 entire rental units, a clear preference for renting out full apartments or houses dominates the market. This choice may align with travellers’ desire for autonomy and privacy during their stay, while one the other hand, it may resonate with hosts seeking greater potential income compared to shared spaces.
+
+```{python}
+# make boxplot of airbnb daily price~property type
+plt.figure(figsize=(50, 8))
+sn.boxplot(x='property_type',
+            y='price',
+            data=airbnb_data[airbnb_data.price <= 1000],
+            color='orange'
+            )
+plt.ylabel('Airbnb Daily Price (Unit: Pounds)')
+plt.xlabel('Airbnb Property Type')
+plt.title("Boxplot of Airbnb Daily Price~property Type", y=1.02)
+plt.xticks(rotation=45)
+plt.show() # Double click the graph to zoom in if it is too small
+warnings.filterwarnings('ignore')
+```
+
+(4) Boroughs: The spatial distribution of Airbnb listings reveals a distinct concentration in Lambeth, which boasts the highest number (275) across the three years. This contrasts sharply with the City of London's mere 6 listings. This disparity likely stems from a combination of factors. Lambeth's larger landmass provides more housing options suitable for short-term rentals, while its vicinity to popular tourist destinations like Westminster Abbey and Buckingham Palace further fuels demand.
+
+```{python}
+# make scatterplot of airbnb dispersion in London
+plt.figure(figsize=(12,8))
+sn.scatterplot(data=airbnb_data, x='longitude', y='latitude', hue='neighbourhood_cleansed')
+plt.ylabel('Latitude of Airbnb')
+plt.xlabel('Longitude of Aribnb')
+plt.title('Scatterplot of Airbnb Dispersion in London', y=1.02)
+# Place the legend outside the plot
+legend = plt.legend(title='London Boroughs', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)
+plt.show()
+warnings.filterwarnings('ignore')
+```
+
+From individual hosts sharing their homes to professional management companies catering to larger groups, the platform caters to a wide range of budgets and preferences. The price variations tied to bedrooms further highlight the variety of experiences available, from budget-friendly solo adventures to luxurious group getaway Our data paints a picture of a vibrant and multifaceted Airbnb landscape in London.
+
+
+## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, and statistical analysis/models), how *could* this data set be used to inform the regulation of Short-Term Lets (STL) in London? 
+
+The dataset we have used encompassing London's Airbnb listings and long-term rental data, would enable us to investigate the relationships between single-listing Airbnb hosts and long-term rentals. Now, we can leverage it to tackle the crucial question: Could a heavier sales tax on single-listing Airbnb hosts influence the long-term housing market?
+
+### Quantifying the Localized Impact:
+To address this, we can delve deeper into our data, employing tools such as scatter plots and heatmaps to visualize the relationships between single-listing STLs and long-term housing availability and prices. This granular analysis, focusing on specific neighborhoods and boroughs, will reveal which areas are most affected and which housing types face the brunt of the impact. For example, comparing Lambeth's concentration of STLs with its long-term rental scarcity could expose a crucial correlation.
+
+### Predicting Policy Scenarios:
+But simply observing these interactions isn't enough. We can utilize statistical models, specifically a difference-in-differences (DID) approach, to simulate the potential outcomes of different policy scenarios. Imagine testing the proposed sales tax, comparing housing market changes before and after its implementation in specific areas. This allows us to assess the predicted impact on both long-term housing availability and prices, providing policymakers with valuable insights before enacting real-world changes.
+
+### Addressing Nuances and Limitations:
+However, we shall acknowledge data limitations and the contextual differences between London and Taiwan. Biases within the data and contextual differences necessitate caution in extrapolating our findings. While Chen et al.'s study in Taiwan offers valuable context, London's unique dynamics require careful consideration. In this study, we have specifically taken into consideration of the following influential factors:
+(1) Temporal scope: We restricted our analysis to the period January 2016 to December 2018, as this timeframe encompasses the most recent available data for both short-term and long-term rental listings in London.
+(2) Listing Availability: We limited our analysis to active, available Airbnb listings, ensuring that the data reflects the current state of the short-term rental market.
+(3) Host Ownership: We confined our examination to Airbnb hosts who exclusively own one single short-term Airbnb listing in London. Since London’s current sales tax policy only applies to hosts who own two or more short-term Airbnb listings, we shall focus on hosts with one single listing specifically. 
+(4)	Housing Type: Other housing types aside from entire house/apt, e.g. hotel rooms or private rooms, cannot be transitioned into long-term listings, consequently having no impact on the quantity and pricing of long-term listings.
+
+However, other variables we may not be able to control in this research using the datasets above, such as amenities, spatial variations and external socio-economic factors between London and Taiwan. Further research may be necessary for providing a more comprehensive insights for policy suggestions. 
+
+With such exploration and uses of the dataset, we may test the effectiveness of whether implementing heavier sales tax on single-listing Airbnb hosts would produce positive effects to London's long-term housing market.
+
+```{python}
+# We'll focus on the entire rental unit property type and the year spell 2016-2018 for plotting the maps
+
+# Extract the year from 'host_since' and create a new 'year' column format like 2011 from 2011-01-01
+airbnb_data['year'] = airbnb_data['host_since'].dt.year
+
+# Select entire rental unit only as we'll focus on it the df_properities will be a template variable which only has entire rental unit for property type
+df_properties = airbnb_data[airbnb_data['property_type'] == 'Entire rental unit']
+
+# Specify the year spell as we are focus on 2016-2018
+years = [2016, 2017, 2018]
+```
+
+```{python}
+# plotting the map average daily price for airbnb entire rental unit for year 2016-2018 to visualize the change of airbnb daily price borough by borough
+
+# Group and calculate average price by region and year
+grouped_data = df_properties.groupby(['neighbourhood_cleansed', 'year'])['price'].mean().reset_index()
+
+# Pivot the data to have years as columns and regions as rows
+pivoted_data = grouped_data.pivot(index='neighbourhood_cleansed', columns='year', values='price')
+legend_handle = [Patch(facecolor='lightgrey', edgecolor='lightgrey', label='No Entire Rental Unit in this borough')]
+# Merge the GeoDataFrame with the pivoted data only once
+gdf = london_geodata.merge(pivoted_data, how='left', left_on='neighbourhood', right_index=True)
+
+# fig, axs = plt.subplots(len(years), 1, figsize=(14, 10 * len(years)))  
+fig = plt.figure(figsize=(14, 30))
+gs = GridSpec(3, 2, width_ratios=[2.5, 1.5])
+
+for i, year in enumerate(years):
+    # Create the choropleth map subplot for each year on the left
+    ax_map = fig.add_subplot(gs[i, 0])
+    # Plot the GeoDataFrame
+    gdf.plot(column=year, ax=ax_map, cmap='viridis', legend=True, missing_kwds={'color': 'lightgrey'},
+             legend_kwds={'label': "Airbnb Average Daily Price", 'orientation': "horizontal"})
+    ax_map.set_title(f'Map of Average price for Entire rental unit in {year}')
+    ax_map.axis('off')
+
+    # Remove the axes spines (the black frame)
+    for spine in ax_map.spines.values():
+        spine.set_visible(False)
+
+    # Adjust the legend
+    ax_map.legend(handles=legend_handle, loc='lower center', bbox_to_anchor=(0.5, -0.05), fontsize='large')
+
+    # Create the heatmap subplot for each year on the right
+    ax_heatmap = fig.add_subplot(gs[i, 1])
+    # Filter and create the heatmap data
+    df_year = df_properties[df_properties['year'] == year]
+    avg_prices = df_year.groupby('neighbourhood_cleansed')['price'].mean().sort_values(ascending=False)
+    heatmap_data = avg_prices.to_frame(name='Average Price')
+
+    # Plot the heatmap
+    sn.heatmap(heatmap_data, ax=ax_heatmap, annot=True, fmt='.0f', annot_kws={"size": 6}, cmap='viridis')
+    ax_heatmap.set_title(f'Heatmap of Average price for Entire rental unit in {year}')
+    ax_heatmap.set_ylabel('Boroughs')
+    ax_heatmap.set_yticklabels(avg_prices.index, rotation=0)
+
+
+plt.tight_layout()
+
+plt.show()
+```
+
+```{python}
+#convert the average variable of housing data to float type
+housing_data['Average'] = housing_data['Average'].astype(str)
+housing_data['Average'] = housing_data['Average'].str.replace(',','').astype('float')
+housing_data['Count of rents'] = housing_data['Count of rents'].astype(str)
+housing_data['Count of rents'] = housing_data['Count of rents'].str.replace(',', '').astype('float')
+```
+
+```{python}
+#Plotting the hosuing average borough by borough in year 2017 and year 2018
+#group by the area and year 
+#actually the Average here already stands for the Average price but just in case we have more than one average per year as if there is only one value mean will still be itself
+grouped_data = housing_data.groupby(['Area', 'Year'])['Average'].mean().reset_index()
+
+# Pivot the data to have years as columns and areas as rows
+pivoted_data = grouped_data.pivot(index='Area', columns='Year', values='Average')
+
+years = [2017, 2018]
+
+fig, axs = plt.subplots(2, 1, figsize=(14, 10 * len(years))) 
+legend_handle = [Patch(facecolor='lightgrey', edgecolor='lightgrey', label='No value in this borough')]
+for i, year in enumerate(years):
+    # Plot the choropleth map for each year
+    ax = axs[i]
+    gdf.plot(column=year, ax=ax, legend=True,
+             legend_kwds={'label': "Average Price of Hosuing data", 'orientation': "vertical"},
+             cmap='Oranges',  
+             missing_kwds={'color': 'lightgrey'})  
+    ax.set_title(f'Average Price of Housing Data in {year}')
+    ax.axis('off') 
+    # add the legend for demonstrating the gray patch representing no value in that area
+    axs[i].legend(handles=legend_handle, loc='lower right', fontsize='large')
+
+plt.tight_layout(pad=3.0)
+# plt.savefig('airbnb_listings_count_map.png', dpi=600) 
+plt.show()
+```
+
+## References
