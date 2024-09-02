@@ -141,23 +141,28 @@ We really want to know what kind of maps can be added to Question 7 that will be
 
 ## 1. Who collected the data? 
 
-Our Airbnb listing data and geographical boundary data are from Inside Airbnb, which is a non-commercial database constructed by Murray Cox [@insideairbnb]. And our long-term housing rental data is from London Datastore updated by Valuation Office Agency (VOA) [@valuationofficeagency].
+The data is collected by Inside Airbnb (IA) from AirBnB’s official website. IA was launched in 2016 by Murray Cox  [@insideairbnb], an independent researcher and activist who started data scraping in 2014 [@Katz2017]. 
+
 
 ## 2. Why did they collect it? 
 
-Inside Airbnb aims to quantify, analyse and reveal how Airbnb short-term rentals operate in different cities and their impact on local residential communities and real estate markets [@insideairbnb]. And the VOA collected the long-term housing rental data to produce reports and statistics, including the Index of Private Housing Rental Prices (IPHRP) through providing data to government and other stakeholders, and support economic research and analysis.
+IA started the project to empower local communities to understand the impacts of Airbnb on housing market [@insideairbnb]. It found that Airbnb misled media and public by purging the over 1000  “Entire Home” listings in the New York City before releasing data in 2015. The purging resulted in misrepresentation of actual “Entire Home” listings and multiple listings by hosts. [@Cox2016] Hosts buy and list residential properties (not their primary homes) on Airbnb resulting into more pressure on the residential market , reducing availability, increasing prices and rentals, and disrupting local communities. The long-term median rentals in New York city have increased by $380 between 2014 and 2017 due to reduction in availability of housing caused by Airbnb. [@Casas2018] 
+
 
 ## 3. How was the data collected? 
 
-Inside Airbnb collected data on London's Airbnb listings by scraping the Airbnb website once a month [@insideairbnb]. This means that they used software to automatically gather information from the website, such as the number of listings, the type of properties, and the prices. This data was then cleaned and analyzed to produce insights into the Airbnb market in London. While the Valuation Office Agency collects long-term housing rental data from a variety of sources, through rent data directly from landlords and letting agents, sample of rental properties, property transactions and the National Landlord Register.
+IA collects data by web scraping from the Airbnb website, using only publicly available information such as listings, availability calendar for 365 days in future and reviews for each listing. The data for each region is collected periodically and made available on quarterly basis [@insideairbnb]. The data is collected using python scripts available online. [@Alsudais2021] One such resource is Github repository of Slee. The scripts available in the repository are not updated anymore [@Slee2023]. It is unclear whether IA update the scripts, raising concerns regarding the performance of scraping process used by IA. The data collection also suffer due to constant changes on the website by Airbnb to discourage scrapers.[@dirkmjk2019]
+
+On top vague data collection process, the actual data is also inconsistent [@Adamiak2019]. The data quality issues arise from two key aspects, (1) the data only shows a snapshot of listings and calendar availability at the time when data was scraped, and (2) it is impossible to understand whether the listing is unavailable because it is booked by a guest or blocked by the host. [@Leonel2022]
+
 
 ## 4. How does the method of collection impact the completeness and/or accuracy of its representation of the process it seeks to study, and what wider issues does this raise? 
 
-While both the Valuation Office Agency (VOA)'s data and Inside Airbnb's dataset have been widely used by researchers, their data collection method can be subjected to limitations [@zervas2014]:
+Airbnb is not keen to let scraper extract data and analyze its impact on housing markets. Airbnb make changes to their website that breaks the scrapers code. Amsterdam’s digital surveillance department gave up scraping Airbnb since it became difficult to update their scraper code [@dirkmjk2019]. Website changes, access controls can introduce gaps in raw data extraction affecting the accuracy, completeness and consistency of data.
+The data collected through scraping can lack contextual information and have algorithm bias [@Boegershausen2022] and can be manipulated. 
+IA takes a snapshot of publicly available information on Airbnb website which only cover listings available at the time of scraping. Airbnb can easily manipulate this by deleting listings, allowing them to control the narration of the dataset. [@Williams2020]. The removal of over 1000 “Entire Home” listing in New York City is a prime example of this manipulation. [@Cox2016]
+The Airbnb calendar data (for 365 days in future) for a listing does not differentiate between a booked night vs an unavailable night. [@insideairbnb] Booked nights are indicative of availability of property for renting over the year strengthening IA’s argument of impact on housing market. On contrary, unavailable property (due to blocked by host) weakens the argument. The IA algorithm assumes all booked and unavailable listings as “unavailable”, which may lead to underrepresentation of impacts of Airbnb on housing market.
 
-Airbnb's scraping method may only capture a partial portion of rental properties [@aguiar2018]. This can result in an incomplete representation of the overall rental market. Additionally, the data collection process may experience delays in gathering and processing the data, affecting its accuracy for near-term analysis. Furthermore, outliers in the data may skew the average rental prices, making the data less reliable.
-
-VOA's data collection method may have availability lags, as data is typically released quarterly or annually, delaying its availability for analysis [@benitez2020]. Moreover, some landlords or letting agents may not report accurately, introducing gaps or inaccuracies in the data. Another limitation is geographic variability, where data representativeness varies across regions and property types. Finally, integrating data from multiple sources can introduce inconsistencies, further reducing the reliability of the data.
 
 ## 5. What ethical considerations does the use of this data raise? 
 
