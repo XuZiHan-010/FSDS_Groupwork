@@ -146,7 +146,7 @@ The data is collected by Inside Airbnb (IA) from AirBnB’s official website. IA
 
 ## 2. Why did they collect it? 
 
-IA started the project to empower local communities to understand the impacts of Airbnb on housing market [@insideairbnb]. It found that Airbnb misled media and public by purging the over 1000  “Entire Home” listings in the New York City before releasing data in 2015. The purging resulted in misrepresentation of actual “Entire Home” listings and multiple listings by hosts. [@Cox2016] Hosts buy and list residential properties (not their primary homes) on Airbnb resulting into more pressure on the residential market , reducing availability, increasing prices and rentals, and disrupting local communities. The long-term median rentals in New York city have increased by $380 between 2014 and 2017 due to reduction in availability of housing caused by Airbnb. [@Casas2018] 
+IA started the project to empower local communities to understand the impacts of Airbnb on housing market [@insideairbnb]. IA also discovers that Airbnb misled media and public by purging the over 1000  “Entire Home” listings in the New York City before releasing data in 2015. The purging resulted in misrepresentation of actual “Entire Home” listings and multiple listings by hosts. [@Cox2016] Hosts buy and list residential properties (not their primary homes) on Airbnb resulting into more pressure on the residential market , reducing availability, increasing prices and rentals, and disrupting local communities. The long-term median rentals in New York city have increased by $380 between 2014 and 2017 due to reduction in availability of housing caused by Airbnb. [@Casas2018] 
 
 
 ## 3. How was the data collected? 
